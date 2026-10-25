@@ -5,4 +5,6 @@ const filterSkillsByCategory = (skills, category) => {
   return skills.filter(skill => skill.category === category);
 };
 
-module.exports = { filterSkillsByCategory };
+if (typeof module !== 'undefined') {
+  module.exports = { filterSkillsByCategory };
+}
