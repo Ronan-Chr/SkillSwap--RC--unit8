@@ -48,3 +48,22 @@ calculateButton.addEventListener("click", function() {
   let resultDiv = document.getElementById("cost-result");
   resultDiv.textContent = `Total Cost: $${totalCost}`;
 });
+
+let matchButton = document.getElementById("match-btn");
+
+matchButton.addEventListener("click", function() {
+  let category = document.getElementById("match-category").value;
+  let maxPrice = parseFloat(document.getElementById("max-price").value);
+  let matches = matchSkillstoUser({ category: category, maxPrice: maxPrice }, skills);
+  let matchResults = document.getElementById("match-results");
+  
+  if (matches.length === 0) {
+    matchResults.textContent= "No matches found.";
+  } else {
+    let text = "Matches Found: ";
+    matches.forEach(function(skill) {
+      text = text + `${skill.title} (${skill.category}) - $${skill.price}/hr\n`;
+    });
+    matchResults.textContent = text;
+  }
+});
