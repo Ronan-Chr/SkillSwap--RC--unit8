@@ -1,4 +1,5 @@
 const { filterSkillsByCategory } = require('../skillswap-functions');
+const { calculateTotalCost } = require('../skillswap-functions');
 const skills = [
   { title: 'Python Tutoring', category: 'Programming', price: 20 },
   { title: 'Guitar Lessons', category: 'Music', price: 15 },
@@ -26,7 +27,7 @@ describe('filterSkillsByCategory', () => {
 });
 
 describe('calculateTotalCost', () => {
-    test('should calculate the total cost of hourly rates and sessions', () => {
+    test('should calculate the total cost of hourly rates and hours in sessions', () => {
         const result = calculateTotalCost(20, 2);
         expect(result).toBe(40);
     });
