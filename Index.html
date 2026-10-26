@@ -34,34 +34,50 @@
         <section class="skills" id="skills">
             <h2 class="label">Posted this week</h2>
                         <!-- Skill cards: hardcoded tutor listings (static version of SSRC-7 search results) -->
+            <div class = "filter-buttons">
+                <button data-category="All">All</button>
+                <button data-category="Programming">Programming</button>
+                <button data-category="Music">Music</button>
+                <button data-category="Career">Career</button>
+            </div>             
             <div class="card-grid">
                 <article class="card" data-info="Availability: Mon/Wed 3-6 PM. Open to trade.">
-                    <p class="label">CS 1100</p>
-                    <h3>Intro to Python</h3>
+                    <p class="label">Programming</p>
+                    <h3>Python Tutoring</h3>
                     <p class="card-desc">Loops, functions, and your first working script.</p>
                     <div class="card-footer">
                         <span class="provider">Ronan C.</span>
+                        <span class="price">$20/hr</span>
+                    </div>
+                </article>
+
+                <article class="card" data-info="Availability: Tue/Thu 4-7 PM.">
+                    <p class="label">Music</p>
+                    <h3>Guitar Lessons</h3>
+                    <p class="card-desc">Learn chords, strumming techniques, and play your first song.</p>
+                    <div class="card-footer">
+                        <span class="provider">Maya R.</span>
                         <span class="price">$15/hr</span>
                     </div>
                 </article>
 
                 <article class="card" data-info="Availability: Tue/Thu 4-7 PM.">
-                    <p class="label">MATH 1500</p>
-                    <h3>Calculus I</h3>
-                    <p class="card-desc">Limits, derivatives, and exam prep with practice problems.</p>
+                    <p class="label">Programming</p>
+                    <h3>Web Development</h3>
+                    <p class="card-desc">Build responsive websites with HTML, CSS, and JavaScript.</p>
                     <div class="card-footer">
-                        <span class="provider">Maya R.</span>
-                        <span class="price">$20/hr</span>
+                        <span class="provider">Alex K.</span>
+                        <span class="price">$25/hr</span>
                     </div>
                 </article>
 
                 <article class="card" data-info="Availability: Fri 1-5 PM. Open to trade.">
-                    <p class="label">MATH 3200</p>
-                    <h3>Discrete Math</h3>
-                    <p class="card-desc">Proofs, logic, sets, and induction, step by step.</p>
+                    <p class="label">Career</p>
+                    <h3>Resume Review</h3>
+                    <p class="card-desc">Get feedback on your resume and improve your job search strategy.</p>
                     <div class="card-footer">
                         <span class="provider">Jordan T.</span>
-                        <span class="price">$18/hr</span>
+                        <span class="price">$0/hr</span>
                     </div>
                 </article>
             </div>
@@ -74,6 +90,7 @@
     </footer>
 
 <!-- links JS last -->
+    <script src="skillswap-functions.js"></script>
     <script src="JS/script.js"></script>
 </body>
 </html>
