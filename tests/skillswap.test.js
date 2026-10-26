@@ -1,5 +1,6 @@
 const { filterSkillsByCategory } = require('../skillswap-functions');
 const { calculateTotalCost } = require('../skillswap-functions');
+const { matchSkillstoUser } = require('../skillswap-functions');
 const skills = [
   { title: 'Python Tutoring', category: 'Programming', price: 20 },
   { title: 'Guitar Lessons', category: 'Music', price: 15 },
@@ -45,6 +46,32 @@ describe('calculateTotalCost', () => {
     test('should return correct total cost for fractional hourly rates', () => {
         const result = calculateTotalCost(25, 1.5);
         expect(result).toBe(37.5);
+    });
+});
+
+describe('matchSkillstoUser', () => {
+    test('should match skills based on Price + Category', () => {
+        const result = matchSkillstoUser({category: 'Programming', maxPrice: 30}, skills);
+        expect(result.length).toBe(2);
+        expect(result[0].title).toBe('Python Tutoring');
+        expect(result[1].title).toBe('Web Development');
+    });
+
+    test('should filter out things that dont meet the price requirement', () => {
+        const result = matchSkillstoUser({category: 'Programming', maxPrice: 20}, skills);
+        expect(result.length).toBe(1);
+        expect(result[0].title).toBe('Python Tutoring');
+    });
+
+    test('should include free skills when maxPrice is 0', () => {
+        const result = matchSkillstoUser({category: 'Career', maxPrice: 0}, skills);
+        expect(result.length).toBe(1);
+        expect(result[0].title).toBe('Resume Review');
+    });
+
+    test('should return nothing when both category and maxPrice do not match any skills', () => {
+        const result = matchSkillstoUser({category: 'Cooking', maxPrice: 10}, skills);
+        expect(result.length).toBe(0);
     });
 });
 /*

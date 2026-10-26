@@ -7,6 +7,12 @@ const filterSkillsByCategory = (skills, category) => {
 const calculateTotalCost = (hourlyRate, hours) => {
   return hourlyRate * hours;
 };
+const matchSkillstoUser = (userNeeds, skills) => {
+  return skills.filter(skill => {
+    return skill.category === userNeeds.category && skill.price <= userNeeds.maxPrice;
+  });
+};
+
 if (typeof module !== 'undefined') {
-  module.exports = { filterSkillsByCategory, calculateTotalCost };
+  module.exports = { filterSkillsByCategory, calculateTotalCost, matchSkillstoUser };
 }

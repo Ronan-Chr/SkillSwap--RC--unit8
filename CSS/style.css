@@ -174,7 +174,7 @@ main {
 }
 
 .filter-buttons button,
-#calculate-btn {
+#calculate-btn, #match-btn {
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.8rem;
   text-transform: uppercase;
@@ -187,7 +187,7 @@ main {
 }
 
 .filter-buttons button:hover,
-#calculate-btn:hover {
+#calculate-btn:hover, #match-btn:hover {
   color: var(--stamp);
   border-color: var(--stamp);
 }
@@ -221,4 +221,32 @@ main {
   font-weight: 600;
   color: var(--stamp);
   font-size: 1.2rem;
+}
+
+#match-category {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1rem;
+  padding: 8px;
+  border: 1px solid var(--rule);
+  background: var(--card);
+}
+
+#match-results {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 600;
+  color: var(--stamp);
+  font-size: 1.2rem;
+}
+
+/* Calculator and matcher side by side */
+.tools {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 48px;
+  border-top: 1px dashed var(--rule);
+}
+
+.tools .calculator {
+  border-top: none;
+  max-width: none;
 }
