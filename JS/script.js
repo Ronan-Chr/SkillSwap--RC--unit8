@@ -38,3 +38,13 @@ filterButtons.forEach(function(button) {
     });
   });
 });
+
+let calculateButton = document.getElementById("calculate-btn");
+
+calculateButton.addEventListener("click", function() {
+  let hourlyRate = parseFloat(document.getElementById("HourlyRate").value);
+  let hours = parseFloat(document.getElementById("hours").value);
+  let totalCost = calculateTotalCost(hourlyRate, hours);
+  let resultDiv = document.getElementById("cost-result");
+  resultDiv.textContent = `Total Cost: $${totalCost}`;
+});

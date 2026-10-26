@@ -164,3 +164,61 @@ main {
 .hidden {
   display: none;
 }
+
+/* Filter buttons */
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.filter-buttons button,
+#calculate-btn {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: var(--card);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.filter-buttons button:hover,
+#calculate-btn:hover {
+  color: var(--stamp);
+  border-color: var(--stamp);
+}
+
+/* Cost calculator */
+.calculator {
+  padding: 48px 0;
+  border-top: 1px dashed var(--rule);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 320px;
+}
+
+.calculator label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.calculator input {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1rem;
+  padding: 8px;
+  border: 1px solid var(--rule);
+  background: var(--card);
+}
+
+#cost-result {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 600;
+  color: var(--stamp);
+  font-size: 1.2rem;
+}
