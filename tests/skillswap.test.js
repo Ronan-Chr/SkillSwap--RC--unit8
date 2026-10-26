@@ -1,4 +1,5 @@
 const { filterSkillsByCategory } = require('../skillswap-functions');
+const { calculateTotalCost } = require('../skillswap-functions');
 const skills = [
   { title: 'Python Tutoring', category: 'Programming', price: 20 },
   { title: 'Guitar Lessons', category: 'Music', price: 15 },
@@ -23,6 +24,28 @@ describe('filterSkillsByCategory', () => {
     const result = filterSkillsByCategory(skills, 'Cooking');
     expect(result.length).toBe(0);
   });
+});
+
+describe('calculateTotalCost', () => {
+    test('should calculate the total cost of hourly rates and hours in sessions', () => {
+        const result = calculateTotalCost(20, 2);
+        expect(result).toBe(40);
+    });
+
+    test('should return 0 when hourly rate is 0', () => {
+        const result = calculateTotalCost(0, 5);
+        expect(result).toBe(0);
+    });
+
+    test('should return 0 when number of sessions is 0', () => {
+        const result = calculateTotalCost(15, 0);
+        expect(result).toBe(0);
+    });
+
+    test('should return correct total cost for fractional hourly rates', () => {
+        const result = calculateTotalCost(25, 1.5);
+        expect(result).toBe(37.5);
+    });
 });
 /*
 filterSkillsByCategory(skills, 'All'); 
